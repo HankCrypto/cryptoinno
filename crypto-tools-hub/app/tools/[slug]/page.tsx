@@ -19,15 +19,19 @@ export default function ToolDetailPage({ params }: ToolPageProps) {
   }
 
   return (
-    <main className="p-10">
-      <h1 className="text-3xl font-bold">
-        {tool.name}
-      </h1>
+    <main className="p-10 max-w-3xl mx-auto">
+      {/* Header */}
+      <header>
+        <h1 className="text-3xl font-bold">
+          {tool.name}
+        </h1>
 
-      <p className="mt-2 text-gray-500">
-        Category: {tool.category}
-      </p>
+        <p className="mt-2 text-gray-500">
+          Category: {tool.category}
+        </p>
+      </header>
 
+      {/* Core information */}
       <section className="mt-6 space-y-3 text-sm">
         <p>
           <strong>Pricing:</strong>{" "}
@@ -68,14 +72,34 @@ export default function ToolDetailPage({ params }: ToolPageProps) {
         </p>
       </section>
 
-      <a
-        href={tool.website}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="inline-block mt-6 text-blue-600 underline"
-      >
-        Visit official website
-      </a>
+      {/* Verification & source */}
+      <section className="mt-10 border-t pt-4 text-sm">
+        <h2 className="font-semibold mb-2">
+          Data Source & Verification
+        </h2>
+
+        <p>
+          <strong>Official website:</strong>{" "}
+          <a
+            href={tool.website}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-blue-600 underline"
+          >
+            {tool.website}
+          </a>
+        </p>
+
+        <p className="text-gray-500 mt-1">
+          Last verified: {tool.lastUpdated}
+        </p>
+
+        <p className="text-xs text-gray-400 mt-3">
+          Information is collected from official public sources.
+          This website acts as an information aggregator and does
+          not provide financial advice.
+        </p>
+      </section>
     </main>
   )
 }
